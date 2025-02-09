@@ -12,8 +12,13 @@ import React from "react";
 
 const items = [
   { title: "Home", url: "/", icon: HomeIcon },
-  { title: "Subscriptions", url: "/", icon: PlaySquareIcon, auth: true },
-  { title: "Trending", url: "/", icon: FlameIcon },
+  {
+    title: "Subscriptions",
+    url: "/subscription",
+    icon: PlaySquareIcon,
+    auth: true,
+  },
+  { title: "Trending", url: "/trending", icon: FlameIcon },
 ];
 export const MainSection = () => {
   return (
@@ -28,7 +33,7 @@ export const MainSection = () => {
                 isActive={false}
                 onClick={() => {}}
               >
-                <Link href={item.url} className="flex  items-center gap-4">
+                <Link href={item.url} className="flex items-center gap-4">
                   <item.icon></item.icon>
                   <span className="text-sm">{item.title}</span>
                 </Link>
