@@ -33,7 +33,7 @@ export const PersonalSection = () => {
                 isActive={false}
                 onClick={() => {}}
               >
-                <Link href={item.url} className="flex  items-center gap-4">
+                <Link href={item.url} className="flex items-center gap-4">
                   <item.icon></item.icon>
                   <span className="text-sm">{item.title}</span>
                 </Link>
