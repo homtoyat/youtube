@@ -1,5 +1,7 @@
+import { trpc } from "@/trpc/server";
 import React from "react";
 
-export default function page() {
-  return <div>i will load videos in the future~</div>;
+export default async function page() {
+  const data = await trpc.hello({ text: " homto" });
+  return <div> client components says: {data.greeting} </div>;
 }
