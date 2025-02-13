@@ -9,6 +9,7 @@ import { makeQueryClient } from "./query-client";
 import type { AppRouter } from "./routers/_app";
 export const trpc = createTRPCReact<AppRouter>();
 let clientQueryClientSingleton: QueryClient;
+import superjson from "superjson";
 function getQueryClient() {
   if (typeof window === "undefined") {
     // Server: always make a new query client
@@ -42,6 +43,12 @@ export function TRPCProvider(
         httpBatchLink({
           // transformer: superjson, <-- if you use a data transformer
           url: getUrl(),
+          transformer: superjson,
+          async headers() {
+            const headers = new Headers();
+            headers.set("x-trpc-source", "nextjs-react");
+            return headers;
+          },
         }),
       ],
     }),
